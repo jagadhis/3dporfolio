@@ -46,6 +46,23 @@ Array(200).fill().forEach(addStar)
 
 const spaceTexture = new THREE.TextureLoader().load('image2.jfif');
 scene.background = spaceTexture;
+
+
+const propic = new THREE.TextureLoader().load('propic.jpeg');
+const pro = new THREE.Mesh(
+  new THREE.BoxGeometry(3,3,3),
+  new THREE.MeshBasicMaterial({map:propic})
+)
+
+scene.add(pro);
+
+const earth = new THREE.TextureLoader().load('download.jfif');
+const moon = new THREE.Mesh(
+  new THREE.SphereGeometry(3,32,32),
+  new THREE.MeshStandardMaterial({map:earth})
+);
+scene.add(moon);
+  
 function animate(){
   requestAnimationFrame(animate);
   torus.rotation.x += 0.01;
